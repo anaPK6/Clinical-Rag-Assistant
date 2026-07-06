@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clinical RAG Assistant — by Anagha</title>
+<meta name="description" content="A local-first RAG assistant for clinical notes that won't lie to a clinician — and proves it, with verifiable citations." />
+<style>
+  :root{
+    --teal:#5ec9c1; --sky:#7fb4e8; --ink:#12405a; --text:#1a2e3d;
+    --muted:#5b7285; --bg:#f6fafd; --card:#ffffff; --border:#e4eef4;
+    --pill:#e6f6f4; --pillink:#2a7d78; --ok:#0ea36b; --warn:#c98a00;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  a{color:#2563eb;text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* hero */
+  .hero{background:linear-gradient(120deg,var(--teal),var(--sky));color:var(--ink);
+    padding:64px 20px 56px;text-align:center}
+  .hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-1px;margin-bottom:10px}
+  .hero .sub{font-size:1.15rem;max-width:620px;margin:0 auto 22px;opacity:.9}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+  .badge{background:rgba(255,255,255,.35);color:var(--ink);padding:5px 14px;
+    border-radius:999px;font-size:.82rem;font-weight:600}
+  .cta{display:inline-block;background:var(--ink);color:#fff;padding:12px 26px;
+    border-radius:12px;font-weight:700;margin:6px;box-shadow:0 6px 18px rgba(15,60,90,.25)}
+  .cta.ghost{background:rgba(255,255,255,.85);color:var(--ink)}
+
+  section{padding:44px 0}
+  h2{font-size:1.7rem;color:var(--ink);margin-bottom:8px;letter-spacing:-.4px}
+  .lead{color:var(--muted);margin-bottom:22px;max-width:720px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:22px;box-shadow:0 4px 16px rgba(15,60,90,.06)}
+  .card h3{font-size:1.08rem;color:var(--ink);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .card .em{font-size:1.5rem}
+
+  .flow{background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:22px;box-shadow:0 4px 16px rgba(15,60,90,.06);overflow-x:auto}
+  pre{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.82rem;color:var(--text);
+    line-height:1.5;white-space:pre}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px;
+    overflow:hidden;box-shadow:0 4px 16px rgba(15,60,90,.06)}
+  th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+  th{background:var(--pill);color:var(--pillink);font-size:.85rem;font-weight:700}
+  td{font-size:.92rem}
+  .num{font-weight:700;color:var(--ink)}
+
+  .steps{counter-reset:step}
+  .step{display:flex;gap:16px;margin-bottom:18px}
+  .step .n{flex:none;width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(120deg,var(--teal),var(--sky));color:var(--ink);
+    display:flex;align-items:center;justify-content:center;font-weight:800}
+  .step h4{color:var(--ink);font-size:1.05rem}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  .pill{display:inline-block;background:var(--pill);color:var(--pillink);
+    padding:3px 12px;border-radius:999px;font-size:.8rem;font-weight:600;margin:2px}
+
+  footer{background:var(--ink);color:#cfe3ee;text-align:center;padding:34px 20px;font-size:.9rem}
+  footer a{color:#9fd8f0}
+  .stackrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <h1>🩺 Clinical RAG Assistant</h1>
+    <p class="sub">A local-first AI assistant for clinical notes — that <b>won't lie to a clinician, and proves it.</b> Ask questions, summarize, and extract structured data, with every answer backed by a verifiable citation.</p>
+    <div class="badges">
+      <span class="badge">100% Local</span>
+      <span class="badge">Verifiable Citations</span>
+      <span class="badge">Honest Refusal</span>
+      <span class="badge">RAG · LLM · Vector DB</span>
+    </div>
+    <div>
+      <a class="cta" href="https://github.com/anaPK6/Clinical-Rag-Assistant" target="_blank">View the Code on GitHub →</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IT DOES -->
+<section class="wrap">
+  <h2>What it does</h2>
+  <p class="lead">Upload a clinical note, then interact with it three ways — all grounded in the note's actual text, all running privately on one machine.</p>
+  <div class="grid">
+    <div class="card"><div class="em">💬</div><h3>Ask</h3><p>Ask natural-language questions about a patient's note and get a direct answer — with the exact source snippet it came from.</p></div>
+    <div class="card"><div class="em">📋</div><h3>Summarize</h3><p>Generate a clean, structured summary of a note: reason for visit, diagnoses, medications, follow-up.</p></div>
+    <div class="card"><div class="em">🧬</div><h3>Extract</h3><p>Pull structured lists of diagnoses, medications, allergies, procedures, and follow-ups — each verified against the note.</p></div>
+  </div>
+</section>
+
+<!-- WHY IT'S DIFFERENT -->
+<section class="wrap">
+  <h2>Why it's not just another RAG chatbot</h2>
+  <p class="lead">In a clinical setting, an AI that <i>sounds</i> confident but invents a medication or dose is dangerous. This project is engineered for the thing that actually matters: <b>trust</b>.</p>
+  <div class="grid">
+    <div class="card"><h3>✅ Verifiable citations</h3><p>The model cites <code>[n]</code> markers; the pipeline verifies each maps to a real retrieved chunk and <b>drops fabricated ones</b>. Proven adversarially — a made-up citation is rejected while the real one is kept.</p></div>
+    <div class="card"><h3>✅ Honest refusal</h3><p>When the answer isn't in the note, it says so and cites nothing — it does not fabricate. Backed by an LLM relevance gate.</p></div>
+    <div class="card"><h3>✅ Grounded extraction</h3><p>Every extracted entity carries a verbatim source snippet verified to exist in the note. Unverifiable ones are flagged <b>⚠ unverified</b>, never silently trusted.</p></div>
+    <div class="card"><h3>✅ Single-patient safety</h3><p>Answers default to one selected note; cross-note search is an explicit, clearly-warned opt-in — so answers can't blend different patients.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="wrap">
+  <h2>How it works</h2>
+  <p class="lead">A Retrieval-Augmented Generation (RAG) pipeline: find the relevant piece of the note, feed only that to a local LLM, and verify everything against the source.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><h4>Section-aware chunking</h4><p>The note is split on clinical section headers (Chief Complaint, Medications, Findings…). Each chunk stores the exact character span it came from — the foundation for verifiable citations.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h4>Local embeddings (BGE)</h4><p>Each chunk is turned into a 768-dim "meaning fingerprint" using a local BGE model — no text leaves the machine.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h4>Vector search (Qdrant)</h4><p>Chunks are stored in a Qdrant vector database, filtered by patient note. A question retrieves the most semantically relevant chunks.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h4>Grounded generation (Ollama · Llama 3.1 8B)</h4><p>A local LLM answers using only the retrieved chunks, cites its sources, and refuses when the answer isn't present.</p></div></div>
+    <div class="step"><div class="n">5</div><div><h4>Citation verification</h4><p>Every citation is checked against the retrieved chunks and resolved to note → section → character span. Fabricated citations are dropped.</p></div></div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="wrap">
+  <h2>Architecture</h2>
+  <p class="lead">A decoupled stack — Streamlit UI talks to a FastAPI backend over HTTP; everything runs locally.</p>
+  <div class="flow"><pre>
+  Streamlit UI  ──HTTP──▶  FastAPI backend
+                              │
+        ┌─────────────────────┼──────────────────────┐
+     retrieval            generation             extraction
+        │                     │                      │
+   BGE embeddings      Ollama (Llama 3.1 8B)   schema JSON + grounding
+        │                     │                      │
+        └──────────▶  Qdrant vector DB  ◀────────────┘
+              (note_id · section · char span · single-patient filter)
+
+  Ingestion:  note ─▶ section-aware chunking ─▶ BGE embed ─▶ Qdrant
+              (char spans preserved → citations are verifiable)
+  </pre></div>
+  <div class="stackrow" style="margin-top:16px">
+    <span class="pill">FastAPI</span><span class="pill">Streamlit</span>
+    <span class="pill">Qdrant</span><span class="pill">BGE embeddings</span>
+    <span class="pill">Ollama · Llama 3.1 8B</span><span class="pill">MLflow</span>
+    <span class="pill">Docker Compose</span>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="wrap">
+  <h2>Evaluation</h2>
+  <p class="lead">Measured on a hand-labeled gold set of 24 Q&amp;A pairs (19 answerable + 5 designed refusal cases). The "gate" is an LLM relevance check that decides whether the note actually contains the answer before responding.</p>
+  <table>
+    <tr><th>Metric</th><th>Baseline</th><th>With relevance gate (default)</th></tr>
+    <tr><td>Answer correctness</td><td class="num">84.2%</td><td class="num">84.2%</td></tr>
+    <tr><td>Citation accuracy</td><td class="num">89.5%</td><td class="num">89.5%</td></tr>
+    <tr><td>Retrieval recall@k</td><td class="num">89.5%</td><td class="num">89.5%</td></tr>
+    <tr><td>Refusal on unanswerable Qs</td><td class="num">60%</td><td class="num">100%</td></tr>
+    <tr><td>False-refusal rate</td><td class="num">0%</td><td class="num">10.5%</td></tr>
+    <tr><td>Latency (mean)</td><td class="num">3.7s</td><td class="num">5.5s</td></tr>
+  </table>
+  <p class="lead" style="margin-top:18px"><b>A measured safety/recall tradeoff.</b> The system initially over-answered questions it should decline (e.g. answering "family <i>history</i>?" from "completed <i>family</i>"). A naive similarity-score threshold was tested and <b>rejected</b> — the score distributions of answerable and unanswerable questions overlap too much. An LLM relevance gate was added instead, lifting refusal from 60% → 100%. Because refusing a real question is safer than fabricating an answer to a fake one, the gate is <b>on by default</b>.</p>
+</section>
+
+<!-- DATA + SCOPE -->
+<section class="wrap">
+  <h2>Data &amp; scope</h2>
+  <div class="grid">
+    <div class="card"><h3>Public data, no PHI</h3><p>Built on <b>MTSamples</b> public transcription reports plus synthetic demo notes — no credentialing, no protected health information.</p></div>
+    <div class="card"><h3>Privacy by design</h3><p>Fully local: embeddings and the LLM run on-device. No clinical text is ever sent to a cloud API.</p></div>
+    <div class="card"><h3>Honest about limits</h3><p>Not a medical device — a portfolio project. Summarizes and retrieves what's written; it does not diagnose or advise. Limitations are documented openly.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Clinical RAG Assistant</b> — built by Anagha.</p>
+  <p style="margin-top:8px">
+    <a href="https://github.com/anaPK6/Clinical-Rag-Assistant" target="_blank">GitHub Repository</a> ·
+    <a href="https://github.com/anaPK6/Clinical-Rag-Assistant/blob/main/README.md" target="_blank">README</a> ·
+    <a href="https://github.com/anaPK6/Clinical-Rag-Assistant/blob/main/DEVLOG.md" target="_blank">Dev Log</a>
+  </p>
+</footer>
+
+</body>
+</html>
