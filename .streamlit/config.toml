@@ -1,0 +1,7 @@
+# Base theme; the app injects its own CSS for the light/dark toggle + gradients.
+[theme]
+primaryColor = "#0ea5a4"
+font = "sans serif"
+
+[server]
+headless = true

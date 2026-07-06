@@ -1,0 +1,54 @@
+# Full local stack for the Clinical RAG Assistant.
+#
+#   qdrant  — vector DB (container)
+#   api     — FastAPI backend (container)
+#   ui      — Streamlit frontend (container)
+#
+# The LLM (Ollama) runs on the HOST, not here: containerizing a ~5GB model +
+# hardware acceleration isn't worth it for a local demo. The api container
+# reaches host Ollama via host.docker.internal.
+#
+# Quick start:
+#   ollama serve            # (or launch the Ollama app) on the host
+#   docker compose up -d
+#   open http://localhost:8501
+#
+# NOTE: qdrant_storage/ holds PHI-derived embeddings and is gitignored.
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.1
+    container_name: clinical-rag-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: clinical-rag-api
+    command: uvicorn app.api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      QDRANT_URL: "http://qdrant:6333"
+      OLLAMA_HOST: "http://host.docker.internal:11434"
+      LLM_MODEL: "llama3.1:8b"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # reach host Ollama from container
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+  ui:
+    build: .
+    container_name: clinical-rag-ui
+    command: streamlit run frontend/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: "http://api:8000"
+    depends_on:
+      - api
+    restart: unless-stopped

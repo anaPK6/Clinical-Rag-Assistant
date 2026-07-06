@@ -1,0 +1,63 @@
+DISCHARGE SUMMARY
+
+PATIENT: [SYNTHETIC - NOT A REAL PATIENT]
+MRN: 000-SYNTH-001
+ADMIT DATE: 03/14/2025    DISCHARGE DATE: 03/19/2025
+
+CHIEF COMPLAINT:
+Shortness of breath and lower extremity swelling x 5 days.
+
+HISTORY OF PRESENT ILLNESS:
+The patient is a 68-year-old male with a history of CHF (EF 35%), type 2
+diabetes mellitus, and hypertension who presented to the ED with progressive
+dyspnea on exertion, orthopnea (now 3-pillow), and bilateral lower extremity
+edema. He reports a 6 lb weight gain over the past week. Denies chest pain,
+fever, or cough. He admits to dietary indiscretion over the holiday and
+missing two doses of his diuretic.
+
+PAST MEDICAL HISTORY:
+1. Congestive heart failure, HFrEF, EF 35% (2023)
+2. Type 2 diabetes mellitus
+3. Essential hypertension
+4. Hyperlipidemia
+5. Chronic kidney disease, stage 3
+
+ALLERGIES:
+Penicillin - rash. Sulfa drugs - hives. No known food allergies.
+
+MEDICATIONS ON ADMISSION:
+- Lisinopril 20 mg PO daily
+- Metoprolol succinate 50 mg PO daily
+- Furosemide 40 mg PO daily
+- Metformin 1000 mg PO BID
+- Atorvastatin 40 mg PO QHS
+
+HOSPITAL COURSE:
+The patient was admitted for acute decompensated heart failure. He was
+diuresed with IV furosemide 80 mg BID with good urine output and net negative
+fluid balance of approximately 4 L over the admission. Daily weights trended
+down. Telemetry showed no arrhythmias. A repeat echo confirmed EF 30-35% with
+no new wall motion abnormalities. Renal function remained at baseline.
+
+PROCEDURES:
+1. Transthoracic echocardiogram (03/15/2025)
+2. Right heart catheterization was deferred.
+
+DISCHARGE DIAGNOSES:
+1. Acute on chronic systolic heart failure (HFrEF)
+2. Type 2 diabetes mellitus, controlled
+3. Stage 3 chronic kidney disease
+
+DISCHARGE MEDICATIONS:
+- Lisinopril 20 mg PO daily
+- Metoprolol succinate 50 mg PO daily
+- Furosemide 80 mg PO daily (INCREASED from 40 mg)
+- Metformin 1000 mg PO BID
+- Atorvastatin 40 mg PO QHS
+- Potassium chloride 20 mEq PO daily (NEW)
+
+FOLLOW-UP:
+1. Cardiology in 1 week - Dr. Smith. Repeat BMP in 3 days at PCP.
+2. Primary care physician within 7 days for weight and volume check.
+3. Low-sodium diet (<2 g/day), daily weights, fluid restriction 1.5 L/day.
+4. Return to ED for weight gain >3 lb in 2 days, worsening dyspnea.

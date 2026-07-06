@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# PHI / DATA HYGIENE — DO NOT REMOVE
+# Never commit clinical notes, derived chunks, embeddings, logs, screenshots,
+# or model outputs. Once PHI lands in git history it is extremely hard to purge.
+# The repo ships CODE + a few synthetic demo notes ONLY.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Raw / downloaded clinical data (MTSamples corpus, any future MIMIC/n2c2 data)
+data/*
+# ...but DO ship the handful of synthetic demo notes:
+!data/sample_notes/
+data/sample_notes/*
+!data/sample_notes/*.synthetic.txt
+
+# Derived artifacts (all PHI-derived → never commit)
+qdrant_storage/
+*.npy
+*.faiss
+embeddings/
+chunks/
+
+# Eval data that may contain note text
+evals/gold/
+evals/*.csv
+evals/*.jsonl
+
+# Logs & outputs (can incidentally leak note text)
+*.log
+logs/
+outputs/
+*.out
+
+# Screenshots / demo captures (can show note text)
+*.png
+*.jpg
+*.jpeg
+*.gif
+screenshots/
+
+# MLflow local tracking (runs may log note-derived params/artifacts)
+mlruns/
+mlartifacts/
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.python-version
+
+# ── Env / secrets ──
+.env
+.env.*
+!.env.example
+
+# ── Notebooks ──
+.ipynb_checkpoints/
+notebooks/*.ipynb_checkpoints/
+
+# ── OS / editor ──
+.DS_Store
+.vscode/
+.idea/

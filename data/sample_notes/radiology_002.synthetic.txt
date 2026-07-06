@@ -1,0 +1,32 @@
+RADIOLOGY REPORT  -  CT CHEST WITH CONTRAST
+
+[SYNTHETIC - NOT A REAL PATIENT]   Acc#: SYNTH-RAD-002
+
+EXAM: CT of the chest with IV contrast.
+
+CLINICAL HISTORY: 54F with cough, weight loss, and abnormal chest x-ray.
+Evaluate for malignancy.
+
+COMPARISON: Chest radiograph dated 02/01/2025.
+
+TECHNIQUE: Helical CT images of the chest were acquired following the
+administration of intravenous contrast. Multiplanar reformatted images
+were reviewed.
+
+FINDINGS:
+LUNGS: There is a 2.3 x 1.9 cm spiculated nodule in the right upper lobe,
+highly suspicious for primary malignancy. No additional pulmonary nodules.
+No pleural effusion. No pneumothorax.
+MEDIASTINUM: Mildly enlarged right paratracheal lymph node measuring 1.2 cm
+in short axis. No bulky mediastinal lymphadenopathy.
+HEART: Normal in size. No pericardial effusion.
+BONES: No aggressive osseous lesion.
+
+IMPRESSION:
+1. 2.3 cm spiculated right upper lobe nodule, highly suspicious for primary
+   lung malignancy. Recommend tissue sampling.
+2. Borderline enlarged right paratracheal node; cannot exclude nodal
+   involvement.
+
+RECOMMENDATION: PET/CT for staging and CT-guided biopsy of the RUL nodule.
+Pulmonology referral advised.
