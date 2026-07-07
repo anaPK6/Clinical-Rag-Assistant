@@ -2,6 +2,8 @@
 
 **A local-first RAG assistant for clinical notes — that won't lie to a clinician, and proves it.**
 
+### 🌐 **[View the live project page →](https://anapk6.github.io/Clinical-Rag-Assistant/)**
+
 Upload a clinical note, then **ask questions**, **generate summaries**, and
 **extract structured data** (diagnoses, medications, allergies, procedures,
 follow-ups) — with **every answer backed by a verifiable citation** into the
